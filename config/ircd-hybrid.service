@@ -1,0 +1,17 @@
+[Unit]
+Description=ircd-hybrid daemon
+After=syslog.target
+
+[Service]
+EnvironmentFile=-/etc/sysconfig/ircd-hybrid
+Type=simple
+ExecStart=/usr/bin/ircd -foreground -pidfile /tmp/ircd.pid
+PIDFile=/tmp/ircd.pid
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+User=ircd-hybrid
+Group=purple
+
+[Install]
+WantedBy=multi-user.target
