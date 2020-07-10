@@ -1,0 +1,9 @@
+DLINE <time> <ip> :[reason]
+
+<time> if present, gives number of minutes for DLINE
+
+Adds a DLINE which will deny any connections from the
+IP address of the banned client. The banned client will
+receive a message saying he/she is banned with reason [reason]
+
+- Requires Oper Priv: dline

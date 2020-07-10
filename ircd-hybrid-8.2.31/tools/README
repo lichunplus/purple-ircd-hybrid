@@ -1,0 +1,5 @@
+$Id: README 7667 2016-07-20 17:09:36Z michael $
+
+A directory of support programs for ircd.
+
+mkpasswd.c - makes password for operator {} blocks

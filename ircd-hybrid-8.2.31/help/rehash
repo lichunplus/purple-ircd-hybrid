@@ -1,0 +1,12 @@
+REHASH <option>
+
+<option> can be one of the following:
+  CONF - Re-read the server configuration file(s)
+  DNS  - Re-read the /etc/resolv.conf file
+  MOTD - Re-read MOTD file(s)
+
+To REHASH on remote servers:
+  REHASH <server> <option>
+
+- Requires Oper Priv: rehash
+- Requires Oper Priv: rehash:remote for REHASH on remote servers

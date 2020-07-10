@@ -1,0 +1,101 @@
+# $Id: .travis.yml 9186 2020-01-20 18:41:10Z michael $
+
+language: c
+
+env:
+ global:
+  - secure: "Cq1iFAKxQ2S/LUz41BaS00+HdqTZt0hqPVlcmF4uIFRSjRocz+mKoroV2Iidbly8uuokOu5yY+ZRw8Yrjc2w8qKM+qsRHo9KNQGPx/jLe06DI2RuPcT3IxnGrElLDUUs2qJ6drjGCrOEFP2eowMdytqLDJfKW5OGLOFsmoSIwD0="
+
+matrix:
+  include:
+  - name: "amd64 - Trusty - gcc"
+    os: linux
+    dist: trusty
+    compiler: gcc
+    arch: amd64
+  - name: "amd64 - Trusty - clang"
+    os: linux
+    dist: trusty
+    compiler: clang
+    arch: amd64
+  - name: "amd64 - Xenial - gcc"
+    os: linux
+    dist: xenial
+    compiler: gcc
+    arch: amd64
+  - name: "amd64 - Xenial - clang"
+    os: linux
+    dist: xenial
+    compiler: clang
+    arch: amd64
+  - name: "arm64 - Xenial - gcc"
+    os: linux
+    dist: xenial
+    compiler: gcc
+    arch: arm64
+  - name: "ppc64le - Xenial - gcc"
+    os: linux
+    dist: xenial
+    compiler: gcc
+    arch: ppc64le
+  - name: "s390x - Xenial - gcc"
+    os: linux
+    dist: xenial
+    compiler: gcc
+    arch: s390x
+  - name: "amd64 - Bionic - gcc"
+    os: linux
+    dist: bionic
+    compiler: gcc
+    arch: amd64
+  - name: "amd64 - Bionic - clang"
+    os: linux
+    dist: bionic
+    compiler: clang
+    arch: amd64
+  - name: "arm64 - Bionic - gcc"
+    os: linux
+    dist: bionic
+    compiler: gcc
+    arch: arm64
+  - name: "ppc64le - Bionic - gcc"
+    os: linux
+    dist: bionic
+    compiler: gcc
+    arch: ppc64le
+  - name: "s390x - Bionic - gcc"
+    os: linux
+    dist: bionic
+    compiler: gcc
+    arch: s390x
+  - name: "amd64 - High Sierra - xcode11.3/clang"
+    os: osx
+    osx_image: xcode11.3
+    compiler: clang
+  - name: "Coverity: amd64 - Bionic - gcc"
+    os: linux
+    dist: bionic
+    compiler: gcc
+    arch: amd64
+    addons:
+      coverity_scan:
+        project:
+          name: "ircd-hybrid/ircd-hybrid"
+          description: "A lightweight, high-performance internet relay chat daemon."
+        notification_email: bugs@ircd-hybrid.org
+        build_command_prepend: ./configure
+        build_command: make
+        branch_pattern: coverity_scan
+
+script:
+ - ./configure
+ - make
+ - sudo make install
+
+notifications:
+ email:
+  - bugs@ircd-hybrid.org
+ irc:
+  channels:
+  - "irc.ircd-hybrid.org#ircd-coders"
+  skip_join: true

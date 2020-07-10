@@ -1,0 +1,24 @@
+SET <option> <value>
+
+<option> can be one of the following:
+  AUTOCONN    - Sets auto-connect on or off for a particular
+                server
+  AUTOCONNALL - Sets auto-connect on or off for all servers
+  FLOODCOUNT  - The number of messages allowed before
+                throttling a user due to flooding.
+                Note that this variable is used for both
+                channels and clients.
+  FLOODTIME   - The time, in seconds, of FLOODCOUNT.
+  JFLOODCOUNT - Sets the number of joins in JFLOODTIME to
+                count as flooding. Use 0 to disable.
+  JFLOODTIME  - The amount of time in seconds in JFLOODCOUNT to consider
+                as join flooding. Use 0 to disable.
+  MAX         - Sets the number of max connections
+                to <value>. (This number cannot exceed
+                HARD_FDLIMIT in defaults.h)
+  SPAMNUM     - Sets how many join/parts to channels
+                constitutes a possible spambot.
+  SPAMTIME    - Below this time on a channel
+                counts as a join/part as above.
+
+- Requires Oper Priv: set
