@@ -12,9 +12,9 @@ all:
 	@mkdir -p ${BUILD_DIR}
 	cd ${BUILD_DIR} && \
     ../ircd-hybrid-8.2.31/configure \
-    --prefix=${ROOTFS}/usr \
-    --libdir=${ROOTFS}/usr/lib64 \
-    --sysconfdir=${ROOTFS}/etc \
+    --prefix=/usr \
+    --libdir=/usr/lib64 \
+    --sysconfdir=/etc \
     --enable-epoll \
     --with-tls='none' && \
     $(MAKE)
@@ -24,7 +24,7 @@ help:
 	@echo "       make clean"
 
 rpm: all
-	cd ${BUILD_DIR} && $(MAKE) install
+	cd ${BUILD_DIR} && $(MAKE) DESTDIR=${ROOTFS} install
 	install -d -m 0755 ${ROOTFS}/usr/lib/systemd/system
 	cp ./config/ircd-hybrid.service ${ROOTFS}/usr/lib/systemd/system/
 	cp ./config/ircd.conf ${ROOTFS}/etc/ircd.conf

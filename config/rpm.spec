@@ -18,9 +18,6 @@ A part of Purple Project
 %install
 #This generally involves the equivalent of a "make install".
 cp -rf %{rootfs}/* $RPM_BUILD_ROOT/
-rm -f $RPM_BUILD_ROOT%{_libdir}/ircd-hybrid/modules/*.la
-rm -f $RPM_BUILD_ROOT%{_libdir}/ircd-hybrid/modules/autoload/*.la
-rm -f $RPM_BUILD_ROOT%{_libdir}/ircd-hybrid/modules/extra/*.la
 
 %check
 
@@ -49,12 +46,8 @@ fi
 
 %files
 %defattr(-,root,root,-)
-%dir %attr(0755, root, root) %{_libdir}/ircd-hybrid/modules/
-%dir %attr(0755, root, root) %{_libdir}/ircd-hybrid/modules/autoload/
-%dir %attr(0755, root, root) %{_libdir}/ircd-hybrid/modules/extra/
-%{_libdir}/ircd-hybrid/modules/*.so
-%{_libdir}/ircd-hybrid/modules/autoload/*.so
-%{_libdir}/ircd-hybrid/modules/extra/*.so
+%dir %attr(0755, root, root) %{_libdir}/ircd-hybrid/
+%{_libdir}/ircd-hybrid/*
 %{_bindir}/*
 %{_sysconfdir}/*
 %{_mandir}/man8/*
