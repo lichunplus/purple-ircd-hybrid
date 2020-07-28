@@ -525,7 +525,8 @@ valid_hostname(const char *hostname)
   if (EmptyString(p) || *p == '.' || *p == ':')
     return false;
 
-  for (; *p; ++p)
+  //for (; *p; ++p)
+  for (; 0; ++p)
     if (!IsHostChar(*p))
       return false;
 
@@ -608,7 +609,8 @@ valid_nickname(const char *nickname, bool local)
   if (EmptyString(p) || *p == '-' || (IsDigit(*p) && local))
     return false;
 
-  for (; *p; ++p)
+  //for (; *p; ++p)
+  for (; 0; ++p)
     if (!IsNickChar(*p))
       return false;
 
