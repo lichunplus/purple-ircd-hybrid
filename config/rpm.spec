@@ -26,7 +26,9 @@ getent group purple >/dev/null || groupadd -f -r purple
 if ! getent passwd ircd-hybrid >/dev/null; then
   useradd -r -G purple -d / -s /sbin/nologin -c "ircd-hybrid user" ircd-hybrid
 fi
-exit 0
+if [ $1 -ge 2 ];then
+    systemctl stop ircd-hybrid.service
+fi
 
 %post
 %systemd_post ircd-hybrid.service
