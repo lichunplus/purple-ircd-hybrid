@@ -260,12 +260,15 @@ user_welcome(struct Client *client)
   if (HasFlag(client, FLAGS_TLS))
   {
     AddUMode(client, UMODE_SECURE);
-    sendto_one_notice(client, &me, ":*** Connected securely via %s",
+    /* 
+      sendto_one_notice(client, &me, ":*** Connected securely via %s",
                       tls_get_cipher(&client->connection->fd->tls));
+    */
   }
 
   sendto_one_numeric(client, &me, RPL_WELCOME, ConfigServerInfo.network_name,
                      client->name, client->username, client->realhost);
+  /*
   sendto_one_numeric(client, &me, RPL_YOURHOST,
                      listener_get_name(client->connection->listener), PATCHLEVEL);
   sendto_one_numeric(client, &me, RPL_CREATED, built_date);
@@ -274,6 +277,7 @@ user_welcome(struct Client *client)
   isupport_show(client);
   show_lusers(client);
   motd_signon(client);
+  */
 }
 
 /*! \brief This function is called when both NICK and USER messages

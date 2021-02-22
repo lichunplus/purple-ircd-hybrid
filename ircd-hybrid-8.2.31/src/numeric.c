@@ -30,7 +30,7 @@
 
 static const char *const replies[] =
 {
-  /* 001 */  [RPL_WELCOME] = ":Welcome to the %s Internet Relay Chat Network %s!%s@%s",
+  /* 001 */  [RPL_WELCOME] = ":您已接入%s网络，通信地址:%s!%s@%s",
   /* 002 */  [RPL_YOURHOST] = ":Your host is %s, running version %s",
   /* 003 */  [RPL_CREATED] = ":This server was created %s",
   /* 004 */  [RPL_MYINFO] = "%s %s %s bchiklmnoprstuveCILMNORST bkloveIh",
@@ -140,7 +140,7 @@ static const char *const replies[] =
   /* 382 */  [RPL_REHASHING] = "%s :Rehashing",
   /* 391 */  [RPL_TIME] = "%s :%s",
   /* 396 */  [RPL_VISIBLEHOST] = "%s :is now your visible host",
-  /* 401 */  [ERR_NOSUCHNICK] = "%s :No such nick/channel",
+  /* 401 */  [ERR_NOSUCHNICK] = "%s :此用户已经离开频道",
   /* 402 */  [ERR_NOSUCHSERVER] = "%s :No such server",
   /* 403 */  [ERR_NOSUCHCHANNEL] = "%s :No such channel",
   /* 404 */  [ERR_CANNOTSENDTOCHAN] = "%s :Cannot send to channel",
@@ -159,7 +159,8 @@ static const char *const replies[] =
   /* 429 */  [ERR_TOOMANYAWAY] = ":Too many aways - Flood protection activated",
   /* 431 */  [ERR_NONICKNAMEGIVEN] = ":No nickname given",
   /* 432 */  [ERR_ERRONEUSNICKNAME] = "%s :%s",
-  /* 433 */  [ERR_NICKNAMEINUSE] = "%s :Nickname is already in use.",
+  /* 433 */  //[ERR_NICKNAMEINUSE] = "%s :Nickname is already in use.",
+  /* 433 */  [ERR_NICKNAMEINUSE] = "%s :此昵称已被使用",
   /* 435 */  [ERR_BANNICKCHANGE] = "%s :Cannot change nickname while banned on channel",
   /* 436 */  [ERR_NICKCOLLISION] = "%s :Nickname collision KILL",
   /* 438 */  [ERR_NICKTOOFAST] = "%s :Nick change too fast. Please wait %u seconds.",

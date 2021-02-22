@@ -70,7 +70,7 @@ enum
 static const char *const HeaderMessages[] =
 {
   [REPORT_DO_DNS] = ":*** Looking up your hostname",
-  [REPORT_FIN_DNS] = ":*** Found your hostname",
+  [REPORT_FIN_DNS] = ":*** Found shit your hostname",
   [REPORT_FAIL_DNS] = ":*** Couldn't look up your hostname",
   [REPORT_DO_ID] = ":*** Checking Ident",
   [REPORT_FIN_ID] = ":*** Got Ident response",
@@ -195,7 +195,7 @@ auth_dns_callback(void *vptr, const struct irc_ssaddr *addr, const char *name, s
   else
   {
     strlcpy(auth->client->host, name, sizeof(auth->client->host));
-    auth_sendheader(auth->client, REPORT_FIN_DNS);
+    //auth_sendheader(auth->client, REPORT_FIN_DNS);
   }
 
   auth_release_client(auth);
@@ -477,7 +477,7 @@ auth_start(struct Client *client)
   assert(client);
   assert(client->connection);
 
-  auth_sendheader(client, REPORT_DO_DNS);
+  //auth_sendheader(client, REPORT_DO_DNS);
 
   auth->dns_pending = true;
 
